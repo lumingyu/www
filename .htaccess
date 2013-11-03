@@ -1,0 +1,3 @@
+RewriteEngine on  
+RewriteCond $1 !^(index\.php|attached|meituan|pic|google34700be5538702f8.html|static|robots\.txt|sitemap.xml|tags)  
+RewriteRule ^(.*)$ /index.php/$1 [L]
