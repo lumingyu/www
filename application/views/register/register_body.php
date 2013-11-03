@@ -59,7 +59,7 @@ $(function(){
 			$("#company_info").hide();
 		}
      })
-	 $("#phone").blur(function(){//用户名类型失去焦点触发验证事件
+	 $("#phone").blur(function(){//电话失去焦点触发验证事件
 		reg=/^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/;
 		reg2=/^\d{3,4}-?\d{7,9}$/;
 		if($("#phone").val() == "")
@@ -70,12 +70,46 @@ $(function(){
 		{
 			if(!reg2.test($("#phone").val()))
 			{
-				$("#password_tip").html("<font color='red'>电话号码不符合格式要求</font>");
+				$("#phone_tip").html("<font color='red'>电话号码不符合格式要求</font>");
+				return;
+			}else
+			{
+				$("#phone_tip").html("");
 				return;
 			}
 		}else
 		{
-			$("#re_password_tip").html("");
+			$("#phone_tip").html("");
+			return;
+		}
+     })
+	 $("#email").blur(function(){//邮件失去焦点触发验证事件
+		reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+		if($("#email_tip").val() == "")
+		{
+			$("#email_tip").html("<font color='red'>电话号码不能为空</font>");
+			return;
+		}
+		if($("#email").val().length != 11 || !reg.test($("#email").val()))//手机电话只能为11位
+		{
+			$("#email_tip").html("<font color='red'>电子邮件地址不符合格式要求</font>");
+			return;
+		}else
+		{
+			$("#email_tip").html("");
+			return;
+		}
+     })
+	 $("#company_name").blur(function(){//公司名称失去焦点触发验证事件
+		
+		if($("#company_name").val() == "")
+		{
+			$("#company_name_tip").html("<font color='red'>公司名称不能为空</font>");
+			return;
+		}
+		else
+		{
+			$("#company_name_tip").html("");
 			return;
 		}
      })
